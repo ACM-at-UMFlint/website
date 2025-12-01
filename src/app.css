@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+
+@layer base {
+    .roboto-mono {
+        font-family: 'Roboto Mono', monospace;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+    }
+    
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 385;
+        font-style: normal;
+        color: #fff;
+    }
+
+    body {
+        background-color: #000;
+    }
+
+}
+

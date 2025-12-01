@@ -1,0 +1,9 @@
+<script lang="ts">
+    let {
+        className = ""
+    } = $props();
+</script>
+
+<svg width="12" height="12" viewBox="0 0 12 12" class={className} xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7695 9.03049V1.38464H3.13292V2.71387H8.51446L1.53784 9.6831L2.47107 10.6154L9.44584 3.64618V9.03049H10.7695Z"/>
+</svg>
