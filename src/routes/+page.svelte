@@ -1,10 +1,6 @@
 <script lang="ts">
 	import { gsap } from 'gsap';
 	import { TextPlugin } from "gsap/TextPlugin";
-	import { ScrollTrigger } from "gsap/ScrollTrigger";
-	import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-	import { MotionPathHelper } from "gsap/MotionPathHelper";
-
 
 	import Cross from '$lib/assets/Cross.svg';
 	import HalfCross from '$lib/assets/HalfCross.svg';
@@ -26,16 +22,13 @@
 	const navItems = ['PROJECTS', 'HACKATHON', 'TEAM', 'CONTACT US', 'SCAN'];
 
 	onMount(() => {
-		gsap.registerPlugin(TextPlugin, ScrollTrigger, MotionPathPlugin, MotionPathHelper); 
+		gsap.registerPlugin(TextPlugin); 
 
 		const crossTl = gsap.timeline({ repeat: -1, yoyo: true });
 		const halfCircleTl = gsap.timeline({ repeat: -1 });
 		const glowTl = gsap.timeline({ repeat: -1, yoyo: true });
 		const pulseGlowTl = gsap.timeline({ repeat: -1, yoyo: true });
 		const typewriteTl = gsap.timeline({ repeat: -1, delay: 2, repeatDelay: 1 });
-		const crossPathTl = gsap.timeline({ scrollTrigger: { trigger: "#about-section", start: "top 80%", toggleActions: "play none none reverse" } })
-
-		crossPathTl.to('#shape-cross', { rotation: 45, duration: 1, ease: 'power1.inOut' })
 
 		gsap.from('.hero-title', {
 			y: 60,
