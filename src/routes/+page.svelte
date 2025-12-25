@@ -11,7 +11,7 @@
     import Corner from "$lib/assets/Corner.svg";
     import ArrowTopRight from "$lib/assets/ArrowTopRight.svelte";
     import Shelves from "$lib/assets/shelves.svg";
-	import UMFlintCIT from "$lib/assets/UMFlintCIT.svg";
+    import UMFlintCIT from "$lib/assets/UMFlintCIT.svg";
 
     import CampusConnections from "$lib/assets/logos/CampusConnections.svelte";
     import Github from "$lib/assets/logos/Github.svelte";
@@ -500,10 +500,10 @@
     </div>
 </div>
 <LanguageStrip />
-<div class="min-h-screen py-20 px-20" id="sponsors-section">
+<div class="py-20 px-20" id="sponsors-section">
     <h2 class="text-6xl mb-8 font-semibold">Our Sponsors</h2>
     <p
-        class="text-[16px] pl-2 font-normal roboto-mono leading-[28px] tracking-[-0.72px]"
+        class="text-[16px] font-normal roboto-mono leading-[28px] tracking-[-0.72px]"
     >
         We proudly
         <span class="text-[#7589FF]">partner with sponsors</span>
@@ -512,7 +512,7 @@
         <span class="text-[#FFCB05]">real-world</span>
         challenges.
     </p>
-    <div class="grid grid-cols-6 mt-8 pl-2">
+    <div class="grid grid-cols-6 mt-8">
         <div class="border border-gray-400 p-1.5 h-56 flex flex-col">
             <p class="text-[10px] roboto-mono">EDUCATION</p>
             <div class="p-8 pt-4 flex-1 flex justify-center items-center">
@@ -522,18 +522,69 @@
                 COLLEGE OF INNOVATION & TECHNOLOGY
             </p>
         </div>
-		<div class="border col-span-5 border-gray-400 p-1.5 h-56 flex flex-col">
+        <div class="border col-span-5 border-gray-400 p-1.5 h-56 flex flex-col">
             <p class="text-[10px] roboto-mono">ACM SPONSOR</p>
             <div class="p-8 pt-4 flex-1 flex justify-center items-center">
                 <h3 class="text-6xl font-semibold">Be our next sponsor</h3>
             </div>
-            <p class="text-[10px] roboto-mono text-end">
-                SOMETHING
-            </p>
+            <p class="text-[10px] roboto-mono text-end">SOMETHING</p>
         </div>
     </div>
-
+    <button
+        class="join-btn w-full mt-16 relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.3)] group"
+    >
+        <span
+            class="relative z-10 w-full text-center roboto-mono font-semibold transition-colors duration-300 group-hover:text-black"
+        >
+            CONTACT US
+        </span>
+        <div
+            class="absolute inset-0 bg-linear-to-r from-[#3fca83] to-[#7589ff] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+        ></div>
+    </button>
 </div>
+
+<div class="py-20 px-20" id="location-section">
+    <h2 class="text-6xl mb-8 font-semibold">Our Location</h2>
+    <p
+        class="text-[16px] font-normal roboto-mono leading-[28px] tracking-[-0.72px]"
+    >
+        Find us in the
+        <span class="text-[#7589FF]">College of Innovation & Technology</span>
+        at
+        <span class="text-[#FFCB05]">University of Michigan - Flint</span>
+    </p>
+    <div class="mt-8 rounded-2xl">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5834.147533421484!2d-83.6902036886266!3d43.01883447101895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882383cadbb81233%3A0x743e72b4d1f50dee!2sUM-Flint%20College%20of%20Innovation%20%26%20Technology!5e0!3m2!1sen!2sus!4v1766623186620!5m2!1sen!2sus"
+            width="100%"
+            height="450"
+            class="rounded-2xl"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+    </div>
+</div>
+
+<footer class="px-20 py-20">
+    <div>
+        <a href="/" class="mb-2">
+            <img
+                src="logo.svg"
+                class="w-12"
+                alt="Logo"
+            />
+        </a>
+        <h2 class="text-2xl mb-4">Association for Computing Machinery</h2>
+        <div class="flex gap-2 mb-4">
+            <Instagram />
+            <Linkedin />
+            <Github />
+        </div>
+        <p class="text-sm text-gray-400">&copy; 2025 Association for Computing Machinery at University of Michigan - Flint.<br>All rights reserved.</p>
+    </div>
+</footer>
 
 <style>
     #hero-section {
