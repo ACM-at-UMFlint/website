@@ -12,6 +12,7 @@
     import ArrowTopRight from "$lib/assets/ArrowTopRight.svelte";
     import Shelves from "$lib/assets/shelves.svg";
     import UMFlintCIT from "$lib/assets/UMFlintCIT.svg";
+    import JoinQR from "$lib/assets/joinQR.svg";
 
     import CampusConnections from "$lib/assets/logos/CampusConnections.svelte";
     import Github from "$lib/assets/logos/Github.svelte";
@@ -24,10 +25,10 @@
 
     const navItems = ["PROJECTS", "HACKATHON", "TEAM", "CONTACT US", "SCAN"];
 
+
     onMount(() => {
         gsap.registerPlugin(TextPlugin);
 
-        const crossTl = gsap.timeline({ repeat: -1, yoyo: true });
         const halfCircleTl = gsap.timeline({ repeat: -1 });
         const glowTl = gsap.timeline({ repeat: -1, yoyo: true });
         const pulseGlowTl = gsap.timeline({ repeat: -1, yoyo: true });
@@ -104,47 +105,13 @@
             }
         );
 
-        crossTl
-            .to("#shape-cross", {
-                rotation: 45,
-                duration: 1,
-                ease: "power1.inOut",
-            })
-            .to("#shape-cross", {
-                rotation: 90,
-                duration: 1,
-                ease: "power1.inOut",
-            })
-            .to("#shape-cross", {
-                rotation: 135,
-                duration: 1,
-                ease: "power1.inOut",
-            })
-            .to("#shape-cross", {
-                rotation: 180,
-                duration: 1,
-                ease: "power1.inOut",
-            })
-            .to("#shape-cross", {
-                rotation: 225,
-                duration: 1,
-                ease: "power1.inOut",
-            })
-            .to("#shape-cross", {
-                rotation: 270,
-                duration: 1,
-                ease: "power1.inOut",
-            })
-            .to("#shape-cross", {
-                rotation: 315,
-                duration: 1,
-                ease: "power1.inOut",
-            })
-            .to("#shape-cross", {
-                rotation: 360,
-                duration: 1,
-                ease: "power1.inOut",
-            });
+        // Optimized cross rotation - single tween instead of 8 separate ones
+        gsap.to("#shape-cross", {
+            rotation: 360,
+            duration: 8,
+            ease: "none",
+            repeat: -1,
+        });
 
         gsap.to("#shape-circle-2", {
             y: -150,
@@ -199,20 +166,35 @@
                 ease: "power1.inOut",
             });
 
-        const reverseTypewrite = gsap
-            .to("#typewrite-text", {
-                duration: 2,
-                text: { value: "Software engineering" },
-                ease: "none",
-            })
-            .reverse(0);
+        const phrases = [
+            "Software Engineering",
+            "Computer Science",
+            "Computer Engineering",
+        ];
+        const typewriteEl = document.getElementById("typewrite-text");
 
-        typewriteTl.add(reverseTypewrite);
-        typewriteTl.to("#typewrite-text", {
-            text: { value: "Software engineering" },
-            duration: 1,
-            ease: "none",
+        phrases.forEach((phrase, index) => {
+            typewriteTl.to("#typewrite-text", {
+                text: { value: phrase },
+                duration: 1,
+                ease: "none",
+            });
+            typewriteTl.to({}, { duration: 1.5 });
+            for (let i = phrase.length; i >= 0; i--) {
+                typewriteTl.call(
+                    () => {
+                        if (typewriteEl)
+                            typewriteEl.textContent = phrase.substring(0, i);
+                    },
+                    [],
+                    `>+=${0.8 / phrase.length}`
+                );
+            }
+            if (index < phrases.length - 1) {
+                typewriteTl.to({}, { duration: 0.3 });
+            }
         });
+
     });
 </script>
 
@@ -272,8 +254,9 @@
             Best
         </h1>
         <div class="flex hero-title">
-            <h1
+<h1
                 id="typewrite-text"
+                aria-label="Software Engineering"
                 class="montserrat gradient-text text-[90px] leading-[100px] tracking-[-5px] h-[100px] font-medium"
             ></h1>
             <h1
@@ -371,8 +354,8 @@
                 <span class="text-[#FFCB05]">world's largest</span><br />
                 <span class="text-[#3FCA83]">computing society</span>.
             </p>
-            <div class="grid grid-cols-3 flex-1 mt-8">
-                <div class="border border-gray-400 p-1.5 flex flex-col">
+            <div class="grid grid-cols-3 flex-1 mt-8 focus-cards-container">
+                <div class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.15)] hover:-translate-y-1">
                     <p class="text-[10px] roboto-mono">FOCUS 1</p>
                     <div class="p-8 pt-4 flex-1">
                         <h3
@@ -392,7 +375,7 @@
                         FOR DEVELOPERS
                     </p>
                 </div>
-                <div class="border border-gray-400 p-1.5 flex flex-col">
+                <div class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#7589ff] hover:shadow-[0_0_30px_rgba(117,137,255,0.15)] hover:-translate-y-1">
                     <p class="text-[10px] roboto-mono">FOCUS 2</p>
                     <div class="p-8 pt-4 flex-1">
                         <h3
@@ -411,7 +394,7 @@
                         FOR DATA SCIENTISTS
                     </p>
                 </div>
-                <div class="border border-gray-400 p-1.5 flex flex-col">
+                <div class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#ffcb05] hover:shadow-[0_0_30px_rgba(255,203,5,0.15)] hover:-translate-y-1">
                     <p class="text-[10px] roboto-mono">FOCUS 3</p>
                     <div class="p-8 pt-4 flex-1">
                         <h3
@@ -432,7 +415,7 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center items-center gap-4">
+    <div class="flex justify-center items-center gap-4 social-buttons-container">
         <button
             class="social-btn campus-btn relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 group"
         >
@@ -512,8 +495,8 @@
         <span class="text-[#FFCB05]">real-world</span>
         challenges.
     </p>
-    <div class="grid grid-cols-6 mt-8">
-        <div class="border border-gray-400 p-1.5 h-56 flex flex-col">
+    <div class="grid grid-cols-6 mt-8 sponsor-cards-container">
+        <div class="sponsor-card border border-gray-400 p-1.5 h-56 flex flex-col transition-all duration-300 hover:border-[#ffcb05] hover:shadow-[0_0_30px_rgba(255,203,5,0.2)]">
             <p class="text-[10px] roboto-mono">EDUCATION</p>
             <div class="p-8 pt-4 flex-1 flex justify-center items-center">
                 <img src={UMFlintCIT} alt="UMFlint CIT" />
@@ -522,7 +505,7 @@
                 COLLEGE OF INNOVATION & TECHNOLOGY
             </p>
         </div>
-        <div class="border col-span-5 border-gray-400 p-1.5 h-56 flex flex-col">
+        <div class="sponsor-card border col-span-5 border-gray-400 p-1.5 h-56 flex flex-col transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.2)]">
             <p class="text-[10px] roboto-mono">ACM SPONSOR</p>
             <div class="p-8 pt-4 flex-1 flex justify-center items-center">
                 <h3 class="text-6xl font-semibold">Be our next sponsor</h3>
@@ -545,7 +528,7 @@
 </div>
 
 <div class="py-20 px-20" id="location-section">
-    <h2 class="text-6xl mb-8 font-semibold">Our Location</h2>
+    <h2 class="text-6xl mb-8 font-semibold">How to join</h2>
     <p
         class="text-[16px] font-normal roboto-mono leading-[28px] tracking-[-0.72px]"
     >
@@ -554,27 +537,50 @@
         at
         <span class="text-[#FFCB05]">University of Michigan - Flint</span>
     </p>
-    <div class="mt-8 rounded-2xl">
-        <iframe
+    <div class="mt-8 flex gap-16">
+<iframe
+            title="UM-Flint College of Innovation & Technology Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5834.147533421484!2d-83.6902036886266!3d43.01883447101895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882383cadbb81233%3A0x743e72b4d1f50dee!2sUM-Flint%20College%20of%20Innovation%20%26%20Technology!5e0!3m2!1sen!2sus!4v1766623186620!5m2!1sen!2sus"
-            width="100%"
-            height="450"
+            width="50%"
             class="rounded-2xl"
             style="border:0;"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
+        <div class="join-steps">
+            <h2 class="text-5xl font-semibold">Become a member</h2>
+            <p class="text-xl font-normal">in just 2 minutes</p>
+            <ol class="mt-8 space-y-6 list-decimal roboto-mono list-inside">
+                <li>
+                    Fill the join button below or scan this QR code
+                    <img src={JoinQR} class="mx-auto mt-6" alt="Join QR Code" />
+                </li>
+                <li>Attend any offline event of ACM and show interest</li>
+                <li>
+                    Follow us on Instagram and LinkedIn to get updates and find
+                    a team
+                </li>
+            </ol>
+            <button
+                class="join-btn w-full mt-12 relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.3)] group"
+            >
+                <span
+                    class="relative z-10 w-full text-center roboto-mono font-semibold transition-colors duration-300 group-hover:text-black"
+                >
+                    JOIN NOW
+                </span>
+                <div
+                    class="absolute inset-0 bg-linear-to-r from-[#3fca83] to-[#7589ff] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                ></div>
+            </button>
+        </div>
     </div>
 </div>
 
 <footer class="px-20 py-20">
     <div>
         <a href="/" class="mb-2">
-            <img
-                src="logo.svg"
-                class="w-12"
-                alt="Logo"
-            />
+            <img src="logo.svg" class="w-12" alt="Logo" />
         </a>
         <h2 class="text-2xl mb-4">Association for Computing Machinery</h2>
         <div class="flex gap-2 mb-4">
@@ -582,7 +588,10 @@
             <Linkedin />
             <Github />
         </div>
-        <p class="text-sm text-gray-400">&copy; 2025 Association for Computing Machinery at University of Michigan - Flint.<br>All rights reserved.</p>
+        <p class="text-sm text-gray-400">
+            &copy; 2025 Association for Computing Machinery at University of
+            Michigan - Flint.<br />All rights reserved.
+        </p>
     </div>
 </footer>
 
@@ -774,5 +783,98 @@
         background: linear-gradient(45deg, #0a66c2, #004182, #0a66c2);
         background-size: 400% 400%;
         animation: border-glow 3s ease infinite;
+    }
+
+    /* Focus card number styling */
+    .focus-card {
+        position: relative;
+    }
+
+    .focus-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3fca83, #7589ff);
+        transition: width 0.4s ease;
+    }
+
+    .focus-card:hover::after {
+        width: 100%;
+    }
+
+    /* Sponsor card shine effect */
+    .sponsor-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sponsor-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.05),
+            transparent
+        );
+        transition: left 0.5s ease;
+    }
+
+    .sponsor-card:hover::before {
+        left: 100%;
+    }
+
+    /* Footer social icons hover */
+    footer :global(svg) {
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    footer :global(svg:hover) {
+        transform: scale(1.2) translateY(-2px);
+        filter: drop-shadow(0 4px 8px rgba(63, 202, 131, 0.3));
+    }
+
+    /* Map iframe glow */
+    iframe {
+        transition: box-shadow 0.3s ease;
+    }
+
+    iframe:hover {
+        box-shadow: 0 0 40px rgba(117, 137, 255, 0.3);
+    }
+
+    /* QR code pulse animation */
+    .join-steps img {
+        animation: qr-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes qr-pulse {
+        0%, 100% {
+            filter: drop-shadow(0 0 0 rgba(63, 202, 131, 0));
+        }
+        50% {
+            filter: drop-shadow(0 0 20px rgba(63, 202, 131, 0.4));
+        }
+    }
+
+    /* Floating animation for shelves image */
+    #about-section img {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
     }
 </style>

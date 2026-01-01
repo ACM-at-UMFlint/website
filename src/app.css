@@ -4,6 +4,10 @@
 
 
 @layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
     .roboto-mono {
         font-family: 'Roboto Mono', monospace;
         font-optical-sizing: auto;
@@ -21,7 +25,31 @@
 
     body {
         background-color: #000;
+        overflow-x: hidden;
     }
 
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #3fca83, #7589ff);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #4fd993, #8599ff);
+    }
+
+    /* Selection styling */
+    ::selection {
+        background: rgba(63, 202, 131, 0.3);
+        color: #fff;
+    }
 }
 
