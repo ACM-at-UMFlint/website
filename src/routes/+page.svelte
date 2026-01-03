@@ -9,11 +9,11 @@
     import Circle from "$lib/assets/Circle.svg";
     import Rectangle from "$lib/assets/Rectangle.svg";
     import Corner from "$lib/assets/Corner.svg";
-    import ArrowTopRight from "$lib/assets/ArrowTopRight.svelte";
     import Shelves from "$lib/assets/shelves.svg";
     import UMFlintCIT from "$lib/assets/UMFlintCIT.svg";
     import JoinQR from "$lib/assets/joinQR.svg";
 
+    import ArrowTopRight from "$lib/assets/ArrowTopRight.svelte";
     import CampusConnections from "$lib/assets/logos/CampusConnections.svelte";
     import Github from "$lib/assets/logos/Github.svelte";
     import Instagram from "$lib/assets/logos/Instagram.svelte";
@@ -22,9 +22,6 @@
     import LanguageStrip from "./LanguageStrip.svelte";
 
     import { onMount } from "svelte";
-
-    const navItems = ["PROJECTS", "HACKATHON", "TEAM", "CONTACT US", "SCAN"];
-
 
     onMount(() => {
         gsap.registerPlugin(TextPlugin);
@@ -194,50 +191,8 @@
                 typewriteTl.to({}, { duration: 0.3 });
             }
         });
-
     });
 </script>
-
-<nav
-    class="flex justify-between items-center roboto-mono px-20 h-20 backdrop-blur-xl fixed top-0 left-0 right-0 z-50 border-b border-white/10"
->
-    <div class="flex items-center gap-12">
-        <a href="/" class="group">
-            <img
-                src="logo.svg"
-                class="w-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
-                alt="Logo"
-            />
-        </a>
-        <ul class="flex gap-8 text-sm">
-            {#each navItems as item}
-                <li
-                    class="nav-item roboto-mono relative cursor-pointer text-white/70 hover:text-white transition-colors duration-300"
-                >
-                    {item}
-                    <span
-                        class="nav-underline absolute -bottom-1 left-0 w-0 h-[2px] bg-linear-to-r from-[#7589ff] to-[#3fca83] transition-all duration-300"
-                    ></span>
-                </li>
-            {/each}
-        </ul>
-    </div>
-    <button
-        class="join-btn relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.3)] group"
-    >
-        <span
-            class="relative z-10 w-full roboto-mono flex items-center gap-2 font-semibold transition-colors duration-300 group-hover:text-black"
-        >
-            JOIN US
-            <ArrowTopRight
-                className="w-4 fill-white transition-all duration-300 group-hover:fill-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-        </span>
-        <div
-            class="absolute inset-0 bg-linear-to-r from-[#3fca83] to-[#7589ff] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
-        ></div>
-    </button>
-</nav>
 
 <div class="pt-32 min-h-screen relative" id="hero-section">
     <div class="px-20">
@@ -254,7 +209,7 @@
             Best
         </h1>
         <div class="flex hero-title">
-<h1
+            <h1
                 id="typewrite-text"
                 aria-label="Software Engineering"
                 class="montserrat gradient-text text-[90px] leading-[100px] tracking-[-5px] h-[100px] font-medium"
@@ -355,7 +310,9 @@
                 <span class="text-[#3FCA83]">computing society</span>.
             </p>
             <div class="grid grid-cols-3 flex-1 mt-8 focus-cards-container">
-                <div class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.15)] hover:-translate-y-1">
+                <div
+                    class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.15)] hover:-translate-y-1"
+                >
                     <p class="text-[10px] roboto-mono">FOCUS 1</p>
                     <div class="p-8 pt-4 flex-1">
                         <h3
@@ -375,7 +332,9 @@
                         FOR DEVELOPERS
                     </p>
                 </div>
-                <div class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#7589ff] hover:shadow-[0_0_30px_rgba(117,137,255,0.15)] hover:-translate-y-1">
+                <div
+                    class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#7589ff] hover:shadow-[0_0_30px_rgba(117,137,255,0.15)] hover:-translate-y-1"
+                >
                     <p class="text-[10px] roboto-mono">FOCUS 2</p>
                     <div class="p-8 pt-4 flex-1">
                         <h3
@@ -394,7 +353,9 @@
                         FOR DATA SCIENTISTS
                     </p>
                 </div>
-                <div class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#ffcb05] hover:shadow-[0_0_30px_rgba(255,203,5,0.15)] hover:-translate-y-1">
+                <div
+                    class="focus-card border border-gray-400 p-1.5 flex flex-col transition-all duration-300 hover:border-[#ffcb05] hover:shadow-[0_0_30px_rgba(255,203,5,0.15)] hover:-translate-y-1"
+                >
                     <p class="text-[10px] roboto-mono">FOCUS 3</p>
                     <div class="p-8 pt-4 flex-1">
                         <h3
@@ -415,7 +376,9 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center items-center gap-4 social-buttons-container">
+    <div
+        class="flex justify-center items-center gap-4 social-buttons-container"
+    >
         <button
             class="social-btn campus-btn relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 group"
         >
@@ -496,7 +459,9 @@
         challenges.
     </p>
     <div class="grid grid-cols-6 mt-8 sponsor-cards-container">
-        <div class="sponsor-card border border-gray-400 p-1.5 h-56 flex flex-col transition-all duration-300 hover:border-[#ffcb05] hover:shadow-[0_0_30px_rgba(255,203,5,0.2)]">
+        <div
+            class="sponsor-card border border-gray-400 p-1.5 h-56 flex flex-col transition-all duration-300 hover:border-[#ffcb05] hover:shadow-[0_0_30px_rgba(255,203,5,0.2)]"
+        >
             <p class="text-[10px] roboto-mono">EDUCATION</p>
             <div class="p-8 pt-4 flex-1 flex justify-center items-center">
                 <img src={UMFlintCIT} alt="UMFlint CIT" />
@@ -505,7 +470,9 @@
                 COLLEGE OF INNOVATION & TECHNOLOGY
             </p>
         </div>
-        <div class="sponsor-card border col-span-5 border-gray-400 p-1.5 h-56 flex flex-col transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.2)]">
+        <div
+            class="sponsor-card border col-span-5 border-gray-400 p-1.5 h-56 flex flex-col transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.2)]"
+        >
             <p class="text-[10px] roboto-mono">ACM SPONSOR</p>
             <div class="p-8 pt-4 flex-1 flex justify-center items-center">
                 <h3 class="text-6xl font-semibold">Be our next sponsor</h3>
@@ -538,7 +505,7 @@
         <span class="text-[#FFCB05]">University of Michigan - Flint</span>
     </p>
     <div class="mt-8 flex gap-16">
-<iframe
+        <iframe
             title="UM-Flint College of Innovation & Technology Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5834.147533421484!2d-83.6902036886266!3d43.01883447101895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882383cadbb81233%3A0x743e72b4d1f50dee!2sUM-Flint%20College%20of%20Innovation%20%26%20Technology!5e0!3m2!1sen!2sus!4v1766623186620!5m2!1sen!2sus"
             width="50%"
@@ -561,8 +528,10 @@
                     a team
                 </li>
             </ol>
-            <button
-                class="join-btn w-full mt-12 relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.3)] group"
+            <a
+                href="https://campusconnections.umflint.edu/ACM/club_signup"
+                target="_blank"
+                class="join-btn block w-full mt-12 relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.3)] group text-center"
             >
                 <span
                     class="relative z-10 w-full text-center roboto-mono font-semibold transition-colors duration-300 group-hover:text-black"
@@ -572,28 +541,10 @@
                 <div
                     class="absolute inset-0 bg-linear-to-r from-[#3fca83] to-[#7589ff] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
                 ></div>
-            </button>
+            </a>
         </div>
     </div>
 </div>
-
-<footer class="px-20 py-20">
-    <div>
-        <a href="/" class="mb-2">
-            <img src="logo.svg" class="w-12" alt="Logo" />
-        </a>
-        <h2 class="text-2xl mb-4">Association for Computing Machinery</h2>
-        <div class="flex gap-2 mb-4">
-            <Instagram />
-            <Linkedin />
-            <Github />
-        </div>
-        <p class="text-sm text-gray-400">
-            &copy; 2025 Association for Computing Machinery at University of
-            Michigan - Flint.<br />All rights reserved.
-        </p>
-    </div>
-</footer>
 
 <style>
     #hero-section {
@@ -627,10 +578,6 @@
         50% {
             background-position: 100% 50%;
         }
-    }
-
-    .nav-item:hover .nav-underline {
-        width: 100%;
     }
 
     .join-btn::before {
@@ -831,23 +778,14 @@
         left: 100%;
     }
 
-    /* Footer social icons hover */
-    footer :global(svg) {
-        transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    footer :global(svg:hover) {
-        transform: scale(1.2) translateY(-2px);
-        filter: drop-shadow(0 4px 8px rgba(63, 202, 131, 0.3));
-    }
-
     /* Map iframe glow */
     iframe {
-        transition: box-shadow 0.3s ease;
+        filter: grayscale(1) invert(1) contrast(1.2);
+        transition: filter 0.3s ease;
     }
 
     iframe:hover {
-        box-shadow: 0 0 40px rgba(117, 137, 255, 0.3);
+        filter: grayscale(0) invert(0) contrast(1);
     }
 
     /* QR code pulse animation */
@@ -856,7 +794,8 @@
     }
 
     @keyframes qr-pulse {
-        0%, 100% {
+        0%,
+        100% {
             filter: drop-shadow(0 0 0 rgba(63, 202, 131, 0));
         }
         50% {
@@ -870,7 +809,8 @@
     }
 
     @keyframes float {
-        0%, 100% {
+        0%,
+        100% {
             transform: translateY(0);
         }
         50% {
