@@ -81,7 +81,7 @@
 {@render children()}
 
 <footer
-    class="px-20 py-16 flex flex-col items-center bg-[#0B0B0B] border-t border-white/10"
+    class="px-20 py-16 flex flex-col items-center bg-[#0B0B0B] border-t border-white/10 relative footer-glow"
 >
     <div class="flex flex-col items-center gap-4 mb-12">
         <a href="/" class="block">
@@ -178,5 +178,26 @@
     footer :global(svg:hover) {
         transform: scale(1.2) translateY(-2px);
         filter: drop-shadow(0 4px 8px rgba(63, 202, 131, 0.3));
+    }
+
+    .footer-glow::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(45deg, rgba(63, 202, 131, 0.03), rgba(117, 137, 255, 0.03));
+        background-size: 200% 200%;
+        animation: footer-shimmer 8s ease infinite;
+        pointer-events: none;
+    }
+
+    @keyframes footer-shimmer {
+        0%, 100% {
+            background-position: 0% 50%;
+            opacity: 0.5;
+        }
+        50% {
+            background-position: 100% 50%;
+            opacity: 0.8;
+        }
     }
 </style>

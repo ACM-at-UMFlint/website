@@ -16,15 +16,8 @@
     ></div>
 
     <div class="w-full max-w-6xl mx-auto relative z-10">
-        <div class="inline-block mb-4">
-            <span
-                class="roboto-mono text-sm tracking-widest select-none text-[#7589ff] border border-[#7589ff]/30 px-4 py-1.5 rounded-full bg-[#7589ff]/5"
-            >
-                ✦ GET IN TOUCH
-            </span>
-        </div>
 
-        <h1 class="montserrat text-[64px] sm:text-[80px] leading-[1] tracking-[-4px] font-medium mb-4">
+        <h1 class="montserrat text-[64px] sm:text-[80px] leading-none tracking-[-4px] font-medium mb-4">
             Contact <span class="gradient-text">ACM</span>
         </h1>
 
