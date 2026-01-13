@@ -92,12 +92,12 @@
         </h2>
 
         <nav class="flex gap-8 text-sm text-white/70">
-            <a href="/about-us" class="hover:text-white transition-colors"
+            <!-- <a href="/about-us" class="hover:text-white transition-colors"
                 >About us</a
             >
             <a href="/contact" class="hover:text-white transition-colors"
                 >Contact</a
-            >
+            > -->
             <!-- <a href="/donate" class="hover:text-white transition-colors">Donate</a>
             <a href="/stats" class="hover:text-white transition-colors">Stats</a>
             <a href="/" class="hover:text-white transition-colors">Home</a> -->
