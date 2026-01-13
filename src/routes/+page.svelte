@@ -265,13 +265,13 @@
         <img
             src={Triangle}
             id="shape-triangle"
-            class="shape-item w-70 absolute bottom-0 right-[550px] drop-shadow-[0_0_20px_rgba(117,137,255,0.3)]"
+            class="shape-item w-70 absolute bottom-0 left-[670px] lg:block hidden drop-shadow-[0_0_20px_rgba(117,137,255,0.3)]"
             alt="Triangle"
         />
         <img
             src={Cross}
             id="shape-cross"
-            class="shape-item w-90 absolute top-0 right-[160px] drop-shadow-[0_0_40px_rgba(255,203,5,0.2)]"
+            class="shape-item w-90 absolute top-0 left-[930px] xl:block hidden drop-shadow-[0_0_40px_rgba(255,203,5,0.2)]"
             alt="Cross"
         />
         <img
@@ -481,7 +481,7 @@
         </div>
     </div>
     <button
-        class="join-btn w-full mt-16 relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 hover:border-[#3fca83] hover:shadow-[0_0_30px_rgba(63,202,131,0.3)] group"
+        class="w-full mt-16 relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] group"
     >
         <span
             class="relative z-10 w-full text-center roboto-mono font-semibold transition-colors duration-300 group-hover:text-black"
@@ -489,7 +489,7 @@
             CONTACT US
         </span>
         <div
-            class="absolute inset-0 bg-linear-to-r from-[#3fca83] to-[#7589ff] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+            class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"
         ></div>
     </button>
 </div>
