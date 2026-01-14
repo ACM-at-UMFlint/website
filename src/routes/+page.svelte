@@ -243,46 +243,46 @@
         <img
             src={Corner}
             id="shape-corner"
-            class="shape-item w-55 absolute bottom-[20px] -left-[150px] opacity-80 hover:opacity-100 transition-opacity"
+            class="shape-item w-55 absolute bottom-[20px] -left-[10%] opacity-80 hover:opacity-100 transition-opacity"
             alt="Corner"
         />
         <img
             src={Circle}
-            class="shape-item w-20 absolute bottom-[20px] left-[20px] opacity-80"
+            class="shape-item w-20 absolute bottom-[20px] left-[1.5%] opacity-80"
             alt="Circle"
         />
         <img
             src={HalfCircle}
             id="shape-half-circle"
-            class="shape-item w-90 absolute bottom-[30px] left-[140px] object-contain drop-shadow-[0_0_30px_rgba(63,202,131,0.3)]"
+            class="shape-item w-90 absolute bottom-[30px] left-[9%] object-contain drop-shadow-[0_0_30px_rgba(63,202,131,0.3)]"
             alt="HalfCircle"
         />
         <img
             src={HalfCross}
-            class="shape-item h-90 absolute rotate-38 bottom-[30px] left-[500px] opacity-80"
+            class="shape-item h-90 absolute rotate-38 bottom-[30px] left-[34%] opacity-80"
             alt="HalfCross"
         />
         <img
             src={Triangle}
             id="shape-triangle"
-            class="shape-item w-70 absolute bottom-0 left-[670px] lg:block hidden drop-shadow-[0_0_20px_rgba(117,137,255,0.3)]"
+            class="shape-item w-70 absolute bottom-0 left-[46%] lg:block hidden drop-shadow-[0_0_20px_rgba(117,137,255,0.3)]"
             alt="Triangle"
         />
         <img
             src={Cross}
             id="shape-cross"
-            class="shape-item w-90 absolute top-0 left-[930px] xl:block hidden drop-shadow-[0_0_40px_rgba(255,203,5,0.2)]"
+            class="shape-item w-90 absolute top-4 left-[64%] xl:block hidden drop-shadow-[0_0_40px_rgba(255,203,5,0.2)]"
             alt="Cross"
         />
         <img
             src={Circle}
             id="shape-circle-2"
-            class="shape-item w-20 absolute bottom-[20px] right-[100px]"
+            class="shape-item w-20 absolute bottom-[20px] right-[7%]"
             alt="Circle"
         />
         <img
             src={Rectangle}
-            class="shape-item w-20 absolute bottom-[20px] -right-[40px] opacity-80"
+            class="shape-item w-20 absolute bottom-[20px] -right-[2%] opacity-80"
             alt="Rectangle"
         />
     </div>
@@ -379,7 +379,8 @@
     <div
         class="flex justify-center items-center gap-4 social-buttons-container"
     >
-        <button
+        <a  href="https://campusconnections.umflint.edu/ACM/club_signup"
+            target="_blank"
             class="social-btn campus-btn relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 group"
         >
             <span
@@ -394,8 +395,9 @@
             <div
                 class="absolute inset-0 bg-linear-to-r from-[#00274C] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
             ></div>
-        </button>
-        <button
+        </a>
+        <a  href="https://github.com/ACM-at-UMFlint"
+            target="_blank"
             class="social-btn github-btn relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 group"
         >
             <span
@@ -410,8 +412,9 @@
             <div
                 class="absolute inset-0 bg-linear-to-r from-[#24292e] to-[#0d1117] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
             ></div>
-        </button>
-        <button
+        </a>
+        <a  href="https://instagram.com/acm_umflint"
+            target="_blank"
             class="social-btn instagram-btn relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 group"
         >
             <span
@@ -426,8 +429,9 @@
             <div
                 class="instagram-bg absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
             ></div>
-        </button>
-        <button
+        </a>
+        <a  href="https://linkedin.com/company/acm-um-flint"
+            target="_blank"
             class="social-btn linkedin-btn relative overflow-hidden px-6 py-2.5 border-2 font-semibold border-white/80 cursor-pointer transition-all duration-300 group"
         >
             <span
@@ -442,7 +446,7 @@
             <div
                 class="absolute inset-0 bg-[#0A66C2] translate-y-full group-hover:translate-y-0 transition-transform duration-300"
             ></div>
-        </button>
+        </a>
     </div>
 </div>
 <LanguageStrip />
